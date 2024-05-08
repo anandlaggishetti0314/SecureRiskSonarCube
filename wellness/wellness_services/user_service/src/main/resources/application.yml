@@ -1,0 +1,32 @@
+
+server:
+  port: 11335
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:11333/eureka
+  instance:
+    ip-address: true  
+  
+spring:
+  application:
+    name: USER-SERVICE
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/wellness
+    username: postgres
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    
+    
+     

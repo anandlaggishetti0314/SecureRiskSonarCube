@@ -1,0 +1,42 @@
+server:
+  port: 11556
+  
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:11555/eureka
+  instance:
+    ip-address: true   
+  
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+           '[/**]':
+            allowedHeaders: '*'
+            allowedMethods: '*'
+            allowedOrigins: '*'
+      routes:
+      - id: USER-SERVICE
+        predicates:
+        - Path=/wellness/user/**
+        uri: lb://USER-SERVICE
+      - id: CUSTOMER-SERVICE
+        predicates:
+        - Path=/wellness/plan/**,/wellness/subscription/**
+        uri: lb://CUSTOMER-SERVICE
+      - id: PAYMENT-SERVICE
+        predicates:
+        - Path=/wellness/**
+        uri: lb://PAYMENT-SERVICE
+    
+    
+   

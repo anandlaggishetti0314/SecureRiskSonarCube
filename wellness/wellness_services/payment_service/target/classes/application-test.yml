@@ -1,0 +1,35 @@
+rzp-client:
+  key-id: rzp_test_uTJaMGs2XInNLJ
+  key-secret: Eb0x8tKg9rhEgJl9K0Uj0JGb
+  
+server:
+  port: 11559
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:11555/eureka
+  instance:
+    ip-address: true   
+  
+spring:
+  application:
+    name: PAYMENT-SERVICE
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/wellness_test
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+    
+    
+   

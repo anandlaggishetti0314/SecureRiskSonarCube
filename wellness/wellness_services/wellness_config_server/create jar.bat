@@ -1,0 +1,1 @@
+start mvnw package -Dmaven.test.skip

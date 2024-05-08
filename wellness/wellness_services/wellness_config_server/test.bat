@@ -1,0 +1,1 @@
+java -jar -Dspring.profiles.active=test target/wellness_config_server-0.0.1-SNAPSHOT.jar
