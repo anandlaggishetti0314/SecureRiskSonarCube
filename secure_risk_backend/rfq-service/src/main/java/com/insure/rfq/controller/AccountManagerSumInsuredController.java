@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 public class AccountManagerSumInsuredController {
 
-    // this is an autowired class for the accountcontroller
+//     this is an autowired class for the accountcontroller
     private final AccountManagerSumInsuredService sumInsuredService;
 
     public AccountManagerSumInsuredController(AccountManagerSumInsuredService sumInsuredService) {
